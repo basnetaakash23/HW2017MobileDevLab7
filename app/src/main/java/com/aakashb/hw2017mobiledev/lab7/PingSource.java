@@ -47,8 +47,8 @@ public class PingSource {
 
     public void getPings(final PingListener pingListener) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        Query last50PingsQuery = pingsRef.limitToLast(50);
         DatabaseReference pingsRef = databaseReference.child("pings");
+        Query last50PingsQuery = pingsRef.limitToLast(50);
         last50PingsQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

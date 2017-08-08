@@ -13,7 +13,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.diglesia.hw2017mobiledev.lab7.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -111,6 +110,9 @@ public class MainFragment extends Fragment {
 
             TextView subtitle = rowView.findViewById(R.id.timestamp_text_view);
             // get a Long timestamp (of millis since epoch) into a human-readable string.
+            if (ping.getTimestamp() == null){
+                return rowView;
+            }
             Date date = new Date(ping.getTimestamp());
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
             subtitle.setText(sdf.format(date));
